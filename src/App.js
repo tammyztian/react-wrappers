@@ -1,24 +1,59 @@
 import React from 'react';
-import logo from './logo.svg';
+import CatDataToChildren from './renderChildren/CatDataToChildren';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      {/*Render Children Props */}
+      {/*<CatDataToChildren>*/}
+          {/*{(cat) =>  <img src={cat.url} />}*/}
+      {/*</CatDataToChildren>*/}
+
+
+      {/*Render Props */}
+      <CatDataToChildren
+        // render={catImage => <img src={catImage} />}
+        // children = {catImage => <img src={catImage} />}
+
+
+        // getCats = {cat => (
+        //     [
+        //         (cat.breeds[0]) ? <h2 className="breed"> {cat.breeds[0].name} </h2> : '',
+        //       <img className="cat-image" src={cat.url} />
+        //     ]
+        // )}
+
+        getCats = {cat => (
+        <React.Fragment>
+            {(cat.breeds[0]) ? <h2 className="breed"> {cat.breeds[0].name} </h2> : ''}
+            <img className="cat-image" src={cat.url} />
+        </React.Fragment>
+
+        )}
+      />
+
+      <style jsx>{`
+
+      .App{
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .breed {
+        size: 25px;
+      }
+
+      .cat-image{
+        max-width: 500px;
+        max-height: 500px;
+      }
+
+      `}
+      </style>
+
+
     </div>
   );
 }
