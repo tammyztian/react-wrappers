@@ -35,8 +35,6 @@ export default class CatDataToChildren extends React.Component {
 
         if (error) return 'Error'
 
-
-
         if (data) {
             let catImage = data[0].url;
 

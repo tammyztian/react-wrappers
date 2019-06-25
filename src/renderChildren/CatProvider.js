@@ -8,7 +8,6 @@ export default ({children}) => (
                 if (error) return 'Error'
 
                 let catImage = data[0].url;
-
                 return children(catImage);
         }}
     </CatQuery>
